@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
+import { Monitor, Server, Database, Brain, Rocket, Package } from "lucide-react";
+import type { ReactNode } from "react";
 import { techStack } from "../data/techStack";
 
-const categoryIcons: Record<string, string> = {
-  Frontend: "🎨",
-  Backend: "⚙️",
-  "Database & Middleware": "🗄️",
-  "AI Application": "🤖",
-  DevOps: "🚀",
+const categoryIcons: Record<string, ReactNode> = {
+  Frontend: <Monitor size={20} className="text-blue-400" />,
+  Backend: <Server size={20} className="text-emerald-400" />,
+  "Database & Middleware": <Database size={20} className="text-amber-400" />,
+  "AI Application": <Brain size={20} className="text-violet-400" />,
+  DevOps: <Rocket size={20} className="text-cyan-400" />,
 };
 
 export default function TechStack() {
@@ -43,7 +45,7 @@ export default function TechStack() {
               transition={{ duration: 0.4, delay: i * 0.08 }}
               className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:border-blue-500/20 transition-all duration-300"
             >
-              <p className="text-lg mb-3">{categoryIcons[group.category] || "📦"}</p>
+              <p className="text-lg mb-3">{categoryIcons[group.category] || <Package size={20} className="text-slate-400" />}</p>
               <h3 className="text-sm font-semibold text-white mb-3">
                 {group.category}
               </h3>

@@ -2,39 +2,29 @@ import { motion } from "framer-motion";
 import { CheckCircle, Lightbulb, Layers, Shield } from "lucide-react";
 import { getFeaturedWorks } from "../data/works";
 
-const features = [
-  {
-    icon: Lightbulb,
-    title: "项目背景",
-    description:
-      "面向企业内部知识检索和高频问答场景，将分散的知识内容转化为可查询、可追溯、可复用的智能问答能力。",
-  },
-  {
-    icon: Layers,
-    title: "核心功能",
-    description:
-      "知识库管理、文档上传与解析、文本切片与向量化、RAG 检索增强生成、答案引用溯源、问答日志审计。",
-  },
-  {
-    icon: Shield,
-    title: "技术架构",
-    description:
-      "前后端分离架构，React + TypeScript 前端，Java Spring Boot 后端，MySQL + Redis + RabbitMQ 中间件，Docker 容器化部署。",
-  },
-];
-
-const techHighlights = [
-  "RAG 检索增强生成链路",
-  "文档解析与向量化 Pipeline",
-  "答案引用降低幻觉风险",
-  "Docker Compose 一键启动",
-];
-
 export default function SelectedWorkShowcase() {
   const featured = getFeaturedWorks();
   const work = featured[0];
 
   if (!work) return null;
+
+  const features = [
+    {
+      icon: Lightbulb,
+      title: "项目背景",
+      description: work.longDescription || work.description,
+    },
+    {
+      icon: Layers,
+      title: "核心功能",
+      description: work.description,
+    },
+    {
+      icon: Shield,
+      title: "技术架构",
+      description: `前后端分离架构，${work.techStack.flatMap((g) => g.items).join("、")}。`,
+    },
+  ];
 
   return (
     <section className="py-24">
@@ -93,7 +83,7 @@ export default function SelectedWorkShowcase() {
         >
           <h3 className="text-lg font-semibold text-white mb-4">技术亮点</h3>
           <div className="grid sm:grid-cols-2 gap-3">
-            {techHighlights.map((item) => (
+            {work.highlights.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <CheckCircle size={16} className="text-cyan-400 shrink-0" />
                 <span className="text-sm text-slate-300">{item}</span>
