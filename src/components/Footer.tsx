@@ -5,7 +5,8 @@ export default function Footer() {
     <footer className="border-t border-white/5 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
         <p className="text-sm text-slate-500">
-          <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent font-medium">
+          Built with{" "}
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent font-medium">
             Works Collection
           </span>
         </p>

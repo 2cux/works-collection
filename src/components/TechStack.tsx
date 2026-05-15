@@ -43,9 +43,11 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:border-blue-500/20 transition-all duration-300"
+              className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:border-blue-500/30 hover:bg-white/[0.06] transition-all duration-300"
             >
-              <p className="text-lg mb-3">{categoryIcons[group.category] || <Package size={20} className="text-slate-400" />}</p>
+              <p className="text-lg mb-3">
+                {categoryIcons[group.category] || <Package size={20} className="text-slate-400" />}
+              </p>
               <h3 className="text-sm font-semibold text-white mb-3">
                 {group.category}
               </h3>
@@ -53,7 +55,7 @@ export default function TechStack() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-slate-300"
+                    className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-slate-300 border border-white/5"
                   >
                     {item}
                   </span>

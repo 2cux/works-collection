@@ -8,10 +8,16 @@ type Props = {
   work: Work;
 };
 
-const statusColors: Record<string, string> = {
-  completed: "bg-emerald-500/10 text-emerald-400",
-  "in-progress": "bg-amber-500/10 text-amber-400",
-  planned: "bg-slate-500/10 text-slate-400",
+const statusStyles: Record<string, string> = {
+  completed: "bg-emerald-500/10 text-emerald-400 border border-emerald-500/10",
+  "in-progress": "bg-amber-500/10 text-amber-400 border border-amber-500/10",
+  planned: "bg-slate-500/10 text-slate-400 border border-slate-500/10",
+};
+
+const statusLabels: Record<string, string> = {
+  completed: "Completed",
+  "in-progress": "In Progress",
+  planned: "Planned",
 };
 
 export default function WorkCard({ work }: Props) {
@@ -21,7 +27,7 @@ export default function WorkCard({ work }: Props) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-white/[0.12] transition-all duration-300"
+      className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-white/[0.15] hover:shadow-lg hover:shadow-black/20 transition-all duration-400"
     >
       {/* Cover image */}
       <div className="relative aspect-video overflow-hidden">
@@ -29,20 +35,24 @@ export default function WorkCard({ work }: Props) {
           src={work.coverImage}
           alt={work.title}
           fallbackTitle={work.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
+        {/* Subtle overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         {work.status && (
           <span
-            className={`absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm ${statusColors[work.status]}`}
+            className={`absolute top-3 right-3 text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm ${statusStyles[work.status]}`}
           >
-            {work.status}
+            {statusLabels[work.status] || work.status}
           </span>
         )}
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="text-lg font-semibold text-white">{work.title}</h3>
+        <h3 className="text-lg font-semibold text-white group-hover:text-blue-300 transition-colors duration-300">
+          {work.title}
+        </h3>
         {work.subtitle && (
           <p className="text-sm text-slate-400 mt-0.5">{work.subtitle}</p>
         )}
@@ -55,13 +65,13 @@ export default function WorkCard({ work }: Props) {
           {work.tags.slice(0, 4).map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300"
+              className="text-xs px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/5"
             >
               {tag}
             </span>
           ))}
           {work.tags.length > 4 && (
-            <span className="text-xs px-2.5 py-1 rounded-full bg-slate-500/10 text-slate-400">
+            <span className="text-xs px-2.5 py-1 rounded-full bg-slate-500/10 text-slate-400 border border-slate-500/5">
               +{work.tags.length - 4}
             </span>
           )}

@@ -22,7 +22,7 @@ export default function SelectedWorkShowcase() {
     {
       icon: Shield,
       title: "技术架构",
-      description: `前后端分离架构，${work.techStack.flatMap((g) => g.items).join("、")}。`,
+      description: `前后端分离架构，${work.techStack.map((g) => `${g.category}: ${g.items.join(" / ")}`).join("；")}。`,
     },
   ];
 
@@ -59,9 +59,11 @@ export default function SelectedWorkShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:border-blue-500/20 transition-all duration-300"
+                className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 hover:border-blue-500/30 hover:bg-white/[0.06] transition-all duration-300"
               >
-                <Icon className="w-8 h-8 text-blue-400 mb-4" />
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4">
+                  <Icon className="w-5 h-5 text-blue-400" />
+                </div>
                 <h3 className="text-lg font-semibold text-white mb-2">
                   {feature.title}
                 </h3>
@@ -79,7 +81,7 @@ export default function SelectedWorkShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8"
+          className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-6 md:p-8 hover:border-blue-500/20 transition-all duration-300"
         >
           <h3 className="text-lg font-semibold text-white mb-4">技术亮点</h3>
           <div className="grid sm:grid-cols-2 gap-3">

@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Smooth scroll */
 html {
   scroll-behavior: smooth;
 }
@@ -8,9 +7,36 @@ html {
 body {
   background-color: #020617;
   color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide scrollbar for mobile nav */
+@keyframes blob {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-blob {
+  animation: blob 18s ease-in-out infinite;
+}
+
+.animate-blob-delayed {
+  animation: blob 22s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+.animate-blob-slow {
+  animation: blob 26s ease-in-out infinite;
+  animation-delay: -12s;
+}
+
 @media (max-width: 767px) {
   html {
     overflow-x: hidden;

@@ -3,11 +3,11 @@ import { ArrowRight, Database, GitBranch, Cpu, MessageSquare, Quote } from "luci
 import GitHubIcon from "./GitHubIcon";
 
 const mockCards = [
-  { label: "Knowledge Base", icon: Database },
-  { label: "RAG Pipeline", icon: GitBranch },
-  { label: "Document Processing", icon: Cpu },
-  { label: "AI Chat", icon: MessageSquare },
-  { label: "Citations", icon: Quote },
+  { label: "Knowledge Base", icon: Database, iconColor: "text-blue-400", borderColor: "hover:border-blue-500/30" },
+  { label: "RAG Pipeline", icon: GitBranch, iconColor: "text-violet-400", borderColor: "hover:border-violet-500/30" },
+  { label: "Document Processing", icon: Cpu, iconColor: "text-cyan-400", borderColor: "hover:border-cyan-500/30" },
+  { label: "AI Chat", icon: MessageSquare, iconColor: "text-emerald-400", borderColor: "hover:border-emerald-500/30" },
+  { label: "Citations", icon: Quote, iconColor: "text-amber-400", borderColor: "hover:border-amber-500/30" },
 ];
 
 export default function Hero() {
@@ -17,7 +17,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Background gradient */}
+      {/* Background gradient blobs (local to hero for extra depth) */}
       <div className="absolute inset-0 bg-slate-950" />
       <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-blue-500/20 blur-[120px]" />
       <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-violet-500/15 blur-[120px]" />
@@ -34,19 +34,19 @@ export default function Hero() {
             <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">
               AI Product · Full Stack · RAG
             </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight">
               Building AI Products{" "}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
                 with Clean Engineering
               </span>
             </h1>
-            <p className="mt-6 text-lg text-slate-300 max-w-xl leading-relaxed">
+            <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
               我专注于 AI 应用开发、RAG 知识库问答系统、Java 后端工程和前后端分离项目交付。
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <button
                 onClick={() => scrollTo("#works")}
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium text-sm hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 View My Works
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -55,7 +55,7 @@ export default function Hero() {
                 href="https://github.com/2cux"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 text-slate-300 font-medium text-sm hover:border-white/25 hover:text-white transition-all duration-300"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/10 text-slate-300 font-medium text-sm hover:border-white/25 hover:text-white hover:bg-white/5 transition-all duration-300"
               >
                 <GitHubIcon size={16} />
                 GitHub
@@ -75,10 +75,10 @@ export default function Hero() {
               return (
                 <div
                   key={card.label}
-                  className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:bg-white/[0.06] hover:border-blue-500/20 transition-all duration-300"
-                  style={{ animationDelay: `${i * 0.1}s` }}
+                  className={`group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:bg-white/[0.06] ${card.borderColor} transition-all duration-300`}
+                  style={{ animation: `float 4s ease-in-out infinite`, animationDelay: `${i * 0.4}s` }}
                 >
-                  <Icon className="w-8 h-8 text-blue-400/80 group-hover:text-blue-300 transition-colors mb-3" />
+                  <Icon className={`w-8 h-8 ${card.iconColor} group-hover:scale-110 transition-transform duration-300 mb-3`} />
                   <p className="text-sm font-medium text-slate-200">{card.label}</p>
                 </div>
               );

@@ -28,7 +28,7 @@ export default function WorksGrid() {
         </motion.div>
 
         {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ${works.length === 1 ? "max-w-md mx-auto sm:max-w-none" : ""}`}>
           {works.map((work) => (
             <WorkCard key={work.id} work={work} />
           ))}

@@ -12,21 +12,23 @@ function FeaturedCard({ work }: { work: Work }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.6 }}
-      className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden hover:border-blue-500/20 transition-all duration-500"
+      className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-3xl overflow-hidden hover:border-blue-500/30 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-500"
     >
       <div className="grid lg:grid-cols-5 gap-0">
-        {/* Image */}
+        {/* Image area */}
         <div className="lg:col-span-3 aspect-video lg:aspect-auto relative overflow-hidden">
           <SafeImage
             src={work.coverImage}
             alt={work.title}
             fallbackTitle={work.title}
-            className="w-full h-full object-cover lg:absolute lg:inset-0"
+            className="w-full h-full object-cover lg:absolute lg:inset-0 group-hover:scale-[1.02] transition-transform duration-700"
           />
+          {/* Gradient overlay on image */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent lg:hidden" />
         </div>
 
         {/* Content */}
-        <div className="lg:col-span-2 p-6 lg:p-8 flex flex-col justify-center">
+        <div className="lg:col-span-2 p-6 lg:p-8 xl:p-10 flex flex-col justify-center">
           <p className="text-blue-400 text-xs font-medium tracking-widest uppercase mb-2">
             Featured Work
           </p>
@@ -39,9 +41,9 @@ function FeaturedCard({ work }: { work: Work }) {
           </p>
 
           {/* Highlights */}
-          <div className="mt-5 space-y-2">
+          <div className="mt-5 space-y-2.5">
             {work.highlights.slice(0, 4).map((h) => (
-              <div key={h} className="flex items-start gap-2">
+              <div key={h} className="flex items-start gap-2.5">
                 <Check size={14} className="text-cyan-400 mt-0.5 shrink-0" />
                 <span className="text-sm text-slate-300">{h}</span>
               </div>
@@ -53,7 +55,7 @@ function FeaturedCard({ work }: { work: Work }) {
             {work.tags.slice(0, 6).map((tag) => (
               <span
                 key={tag}
-                className="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300"
+                className="text-xs px-3 py-1.5 rounded-full bg-white/5 text-slate-300 border border-white/5"
               >
                 {tag}
               </span>
@@ -67,7 +69,7 @@ function FeaturedCard({ work }: { work: Work }) {
                 href={work.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 text-slate-200 text-sm font-medium hover:bg-white/10 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/5 text-slate-200 text-sm font-medium hover:bg-white/10 hover:text-white transition-all"
               >
                 <GitHubIcon size={16} />
                 Source
@@ -78,7 +80,7 @@ function FeaturedCard({ work }: { work: Work }) {
                 href={work.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <ExternalLink size={16} />
                 Live Demo
