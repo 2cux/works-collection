@@ -1,0 +1,66 @@
+import { motion } from "framer-motion";
+import { techStack } from "../data/techStack";
+
+const categoryIcons: Record<string, string> = {
+  Frontend: "🎨",
+  Backend: "⚙️",
+  "Database & Middleware": "🗄️",
+  "AI Application": "🤖",
+  DevOps: "🚀",
+};
+
+export default function TechStack() {
+  return (
+    <section id="tech-stack" className="py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-12"
+        >
+          <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-3">
+            Tech Stack
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            Technologies
+          </h2>
+          <p className="text-slate-400 mt-2 max-w-xl">
+            项目主要技术栈
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+          {techStack.map((group, i) => (
+            <motion.div
+              key={group.category}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:border-blue-500/20 transition-all duration-300"
+            >
+              <p className="text-lg mb-3">{categoryIcons[group.category] || "📦"}</p>
+              <h3 className="text-sm font-semibold text-white mb-3">
+                {group.category}
+              </h3>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-slate-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

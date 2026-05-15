@@ -1,0 +1,93 @@
+import { motion } from "framer-motion";
+import { ArrowRight, Database, GitBranch, Cpu, MessageSquare, Quote } from "lucide-react";
+import GitHubIcon from "./GitHubIcon";
+
+const mockCards = [
+  { label: "Knowledge Base", icon: Database },
+  { label: "RAG Pipeline", icon: GitBranch },
+  { label: "Document Processing", icon: Cpu },
+  { label: "AI Chat", icon: MessageSquare },
+  { label: "Citations", icon: Quote },
+];
+
+export default function Hero() {
+  const scrollTo = (id: string) => {
+    document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-slate-950" />
+      <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-blue-500/20 blur-[120px]" />
+      <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-violet-500/15 blur-[120px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan-500/10 blur-[100px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left: text */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">
+              AI Product · Full Stack · RAG
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              Building AI Products{" "}
+              <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
+                with Clean Engineering
+              </span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-300 max-w-xl leading-relaxed">
+              我专注于 AI 应用开发、RAG 知识库问答系统、Java 后端工程和前后端分离项目交付。
+            </p>
+            <div className="flex flex-wrap gap-4 mt-8">
+              <button
+                onClick={() => scrollTo("#works")}
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium text-sm hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+              >
+                View My Works
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a
+                href="https://github.com/2cux"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/10 text-slate-300 font-medium text-sm hover:border-white/25 hover:text-white transition-all duration-300"
+              >
+                <GitHubIcon size={16} />
+                GitHub
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right: mock preview cards */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            className="hidden lg:grid grid-cols-2 gap-4"
+          >
+            {mockCards.map((card, i) => {
+              const Icon = card.icon;
+              return (
+                <div
+                  key={card.label}
+                  className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl p-5 hover:bg-white/[0.06] hover:border-blue-500/20 transition-all duration-300"
+                  style={{ animationDelay: `${i * 0.1}s` }}
+                >
+                  <Icon className="w-8 h-8 text-blue-400/80 group-hover:text-blue-300 transition-colors mb-3" />
+                  <p className="text-sm font-medium text-slate-200">{card.label}</p>
+                </div>
+              );
+            })}
+            {/* Spacer to make last card align left */}
+            <div />
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+/* Hide scrollbar for mobile nav */
+@media (max-width: 767px) {
+  html {
+    overflow-x: hidden;
+  }
+}
