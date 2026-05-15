@@ -30,12 +30,12 @@ export default function WorkCard({ work }: Props) {
       className="group backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-white/[0.15] hover:shadow-lg hover:shadow-black/20 transition-all duration-400"
     >
       {/* Cover image */}
-      <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden bg-slate-950">
         <SafeImage
           src={work.coverImage}
           alt={work.title}
           fallbackTitle={work.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-contain p-2 group-hover:scale-[1.02] transition-transform duration-700"
         />
         {/* Subtle overlay on hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

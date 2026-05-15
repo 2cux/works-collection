@@ -16,15 +16,25 @@ function FeaturedCard({ work }: { work: Work }) {
     >
       <div className="grid lg:grid-cols-5 gap-0">
         {/* Image area */}
-        <div className="lg:col-span-3 aspect-video lg:aspect-auto relative overflow-hidden">
-          <SafeImage
-            src={work.coverImage}
-            alt={work.title}
-            fallbackTitle={work.title}
-            className="w-full h-full object-cover lg:absolute lg:inset-0 group-hover:scale-[1.02] transition-transform duration-700"
-          />
-          {/* Gradient overlay on image */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent lg:hidden" />
+        <div className="lg:col-span-3 flex flex-col overflow-hidden bg-slate-950">
+          {/* Browser chrome bar */}
+          <div className="flex items-center gap-1.5 px-4 h-9 bg-slate-900/90 border-b border-white/5 shrink-0">
+            <span className="w-3 h-3 rounded-full bg-red-500/80" />
+            <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
+            <span className="w-3 h-3 rounded-full bg-green-500/80" />
+            <span className="ml-auto text-xs text-slate-500 truncate max-w-[50%]">
+              {work.title}
+            </span>
+          </div>
+          {/* Image container — 16:9 on mobile, fills height on desktop */}
+          <div className="flex-1 aspect-video lg:aspect-auto lg:min-h-[320px] p-3">
+            <SafeImage
+              src={work.coverImage}
+              alt={work.title}
+              fallbackTitle={work.title}
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
         </div>
 
         {/* Content */}
