@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Mail, FileText } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
 
+const resumeUrl = `${import.meta.env.BASE_URL}resume/cao-bo-backend-intern.pdf`;
+
 const links = [
   {
     label: "GitHub",
@@ -17,7 +19,7 @@ const links = [
   },
   {
     label: "Resume",
-    href: "/resume/cao-bo-backend-intern.pdf",
+    href: resumeUrl,
     icon: FileText,
     description: "后端开发实习生简历",
   },

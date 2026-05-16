@@ -61,7 +61,7 @@ export default function Hero() {
                 GitHub
               </a>
               <a
-                href="/resume/cao-bo-backend-intern.pdf"
+                href={`${import.meta.env.BASE_URL}resume/cao-bo-backend-intern.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/10 text-slate-300 font-medium text-sm hover:border-white/25 hover:text-white hover:bg-white/5 transition-all duration-300"
