@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Database, GitBranch, Cpu, MessageSquare, Quote } from "lucide-react";
+import { ArrowRight, Database, GitBranch, Cpu, MessageSquare, Quote, FileText } from "lucide-react";
 import GitHubIcon from "./GitHubIcon";
 
 const mockCards = [
@@ -32,16 +32,16 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <p className="text-blue-400 text-sm font-medium tracking-widest uppercase mb-4">
-              AI Product · Full Stack · RAG
+              Backend · AI · RAG
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.08] tracking-tight">
               Building AI Products{" "}
               <span className="bg-gradient-to-r from-blue-400 via-cyan-300 to-violet-400 bg-clip-text text-transparent">
-                with Clean Engineering
+                with Backend Engineering
               </span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
-              我专注于 AI 应用开发、RAG 知识库问答系统、Java 后端工程和前后端分离项目交付。
+              南昌大学软件工程本科在读，求职方向为后端开发实习生。关注 Java 后端工程、Spring Boot、RAG 知识库问答系统和 AI 应用工程化交付。
             </p>
             <div className="flex flex-wrap gap-4 mt-8">
               <button
@@ -59,6 +59,15 @@ export default function Hero() {
               >
                 <GitHubIcon size={16} />
                 GitHub
+              </a>
+              <a
+                href="/resume/cao-bo-backend-intern.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/10 text-slate-300 font-medium text-sm hover:border-white/25 hover:text-white hover:bg-white/5 transition-all duration-300"
+              >
+                <FileText size={16} />
+                Resume
               </a>
             </div>
           </motion.div>

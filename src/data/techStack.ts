@@ -5,19 +5,23 @@ export type TechCategory = {
 
 export const techStack: TechCategory[] = [
   {
+    category: "Java Backend",
+    items: ["Java", "Spring Boot", "RESTful API", "Spring Security", "JWT", "Global Exception Handling", "Validation"],
+  },
+  {
+    category: "Database & Middleware",
+    items: ["MySQL", "Redis", "RabbitMQ", "Flyway"],
+  },
+  {
+    category: "AI Application",
+    items: ["RAG", "Document Parsing", "Text Chunking", "Embedding", "Vector Search", "Prompt Engineering", "LLM API", "Citation Traceability", "Refusal Strategy"],
+  },
+  {
     category: "Frontend",
-    items: ["React 19", "TypeScript 5.9", "Vite 8", "Tailwind CSS 4", "React Router 7", "Axios"],
+    items: ["React", "TypeScript", "Vite", "Tailwind CSS"],
   },
   {
-    category: "Backend",
-    items: ["Spring Boot 3.5", "Spring Security", "MyBatis-Plus", "MySQL 8", "Redis 7", "RabbitMQ 3", "Flyway", "JWT", "SpringDoc / Swagger", "PDFBox", "Apache POI", "Maven"],
-  },
-  {
-    category: "AI / RAG",
-    items: ["LLM API", "Embedding API", "Vector Search", "Text Splitter", "Prompt Strategy", "RAG Pipeline"],
-  },
-  {
-    category: "DevOps",
-    items: ["Docker Compose", "Git", "Apifox", ".env 配置管理"],
+    category: "Tools",
+    items: ["Maven", "Git", "Apifox", "Docker Compose", "Linux Server"],
   },
 ];

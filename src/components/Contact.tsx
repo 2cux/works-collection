@@ -11,15 +11,15 @@ const links = [
   },
   {
     label: "Email",
-    href: "mailto:your-email@example.com",
+    href: "mailto:cb1690015395@qq.com",
     icon: Mail,
-    description: "your-email@example.com",
+    description: "cb1690015395@qq.com",
   },
   {
     label: "Resume",
-    href: "#",
+    href: "/resume/cao-bo-backend-intern.pdf",
     icon: FileText,
-    description: "在线简历",
+    description: "后端开发实习生简历",
   },
 ];
 
@@ -42,7 +42,7 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="text-slate-400 mt-3 max-w-lg mx-auto leading-relaxed">
-            如果你对 AI 应用开发、RAG 项目实践或后端工程感兴趣，欢迎联系我。
+            如果你对 Java 后端开发、AI 应用工程化、RAG 知识库问答系统或实习机会感兴趣，欢迎联系我。
           </p>
         </motion.div>
 

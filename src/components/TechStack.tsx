@@ -5,10 +5,10 @@ import { techStack } from "../data/techStack";
 
 const categoryIcons: Record<string, ReactNode> = {
   Frontend: <Monitor size={20} className="text-blue-400" />,
-  Backend: <Server size={20} className="text-emerald-400" />,
+  "Java Backend": <Server size={20} className="text-emerald-400" />,
   "Database & Middleware": <Database size={20} className="text-amber-400" />,
-  "AI / RAG": <Brain size={20} className="text-violet-400" />,
-  DevOps: <Rocket size={20} className="text-cyan-400" />,
+  "AI Application": <Brain size={20} className="text-violet-400" />,
+  Tools: <Rocket size={20} className="text-cyan-400" />,
 };
 
 export default function TechStack() {
