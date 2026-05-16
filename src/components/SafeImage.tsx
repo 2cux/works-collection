@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ImageIcon } from "lucide-react";
 
+const assetPath = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 type Props = {
   src: string;
   alt: string;
@@ -29,11 +32,11 @@ export default function SafeImage({ src, alt, className, fallbackTitle }: Props)
 
   return (
     <img
-      src={src}
+      src={assetPath(src)}
       alt={alt}
       className={className}
       onError={() => setFailed(true)}
-      loading="lazy"
+      loading="eager"
     />
   );
 }

@@ -52,11 +52,11 @@ export default function ScreenshotCard({ title, image, description, featured, on
           </div>
         ) : (
           <img
-            src={image}
+            src={`${import.meta.env.BASE_URL}${image.replace(/^\//, "")}`}
             alt={title}
             className="w-full h-full object-contain rounded-lg"
             onError={() => setFailed(true)}
-            loading="lazy"
+            loading="eager"
           />
         )}
 

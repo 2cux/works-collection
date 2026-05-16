@@ -56,10 +56,11 @@ export default function ImageLightbox({ open, image, title, description, onClose
             </div>
           ) : (
             <img
-              src={image}
+              src={`${import.meta.env.BASE_URL}${image.replace(/^\//, "")}`}
               alt={title}
               className="max-w-full max-h-[70vh] object-contain rounded-lg"
               onError={() => setFailed(true)}
+              loading="eager"
             />
           )}
         </div>
